@@ -37,3 +37,30 @@ may be appropriate.
 [rst]: http://docutils.sourceforge.net/rst.html
 [md]: https://tools.ietf.org/html/rfc7764#section-3.5 "CommonMark variant"
 [md use]: https://packaging.python.org/specifications/core-metadata/#description-content-type-optional
+
+## Usages On Local Machine
+
+```sh
+# Enter virtual enviroment
+❯ python3.9 -m venv .venv39
+❯ source ./venv39/bin/active
+
+# Local levelopment
+❯ pip install -e .
+
+# Generate distribution package 
+❯ pip install --upgrade build
+❯ python -m build
+
+# Uploading the distribution package
+❯ pip install --upgrade twine
+❯ python3 -m twine upload --repository testpypi dist/*
+
+# Install your newly uploaded package
+❯ pip install --index-url https://test.pypi.org/simple/ --no-deps example-pkg-YOUR-USERNAME-HERE
+
+# Test console scripts
+❯ sample 20
+22
+```
+
